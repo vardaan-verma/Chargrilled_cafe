@@ -220,7 +220,7 @@
             letter-spacing: 2px;
         }
         .carousel-space{
-            background-image:linear-gradient(rgb(24, 24, 24),rgba(0,0,0,0.4)), url(../images/pexels-fwstudio-33348-164003.jpg);
+            background-image:linear-gradient(rgb(24, 24, 24),rgba(0,0,0,0.4)), url(/images/pexels-fwstudio-33348-164003.jpg);
             background-position: center;
             background-size: cover;
             padding: 1px;
@@ -731,6 +731,7 @@
             }
 
         }
+
 
 
 
