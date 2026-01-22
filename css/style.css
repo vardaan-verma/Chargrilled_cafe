@@ -77,7 +77,7 @@
         .hero {
             height: 100vh;
             background: linear-gradient(rgba(26, 26, 26, 0.2), rgba(26, 26, 26, 1)), 
-                        url('/images/pexels-viniciusbenedit-1082343.jpg') center/cover;
+                        url('..../images/pexels-viniciusbenedit-1082343.jpg') center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -178,7 +178,7 @@
         }
 
         .about-image {
-            background: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800') center/cover;
+            background: url('https:/../images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800') center/cover;
             position: relative;
         }
 
@@ -220,7 +220,7 @@
             letter-spacing: 2px;
         }
         .carousel-space{
-            background-image:linear-gradient(rgb(24, 24, 24),rgba(0,0,0,0.4)), url(/images/pexels-fwstudio-33348-164003.jpg);
+            background-image:linear-gradient(rgb(24, 24, 24),rgba(0,0,0,0.4)), url(../images/pexels-fwstudio-33348-164003.jpg);
             background-position: center;
             background-size: cover;
             padding: 1px;
@@ -253,7 +253,7 @@
             z-index: 50;
             display: flex;
             flex-direction: column;
-            background: url('/images/centreplate.png') center;
+            background: url('..../images/centreplate.png') center;
             background-size: auto;
             border-radius: 50%;
            border-style: dotted;
@@ -729,4 +729,5 @@
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
+
         }
