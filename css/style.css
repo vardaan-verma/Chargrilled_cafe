@@ -279,7 +279,7 @@
 
         .center-plate-content {
             text-align: center;
-            background: linear-gradient(to bottom, rgba(26, 26, 26, 0.1), rgba(26, 26, 26, 1));
+            background: linear-gradient(to bottom, rgba(26, 26, 26, 0.1), rgba(26, 26, 26, 0.8));
             padding: 2rem;
             border-radius: 50%;
             width: 100%;
@@ -307,7 +307,7 @@
             padding-right: 10px;
             padding-left: 10px;
             color: var(--terracotta);
-            text-shadow: 0px 10px 20px var(--gold);
+            text-shadow: 0px 10px 15px var(--olive);
             margin-bottom: .5rem;
             font-weight: 900;
         }
