@@ -192,25 +192,27 @@
         <div class="reservations-container">
             <h2>Reservations</h2>
             <p>Join us for an unforgettable dining experience</p>
-            <form class="reservation-form">
+            <form class="reservation-form"
+                action="https://docs.google.com/forms/d/e/1FAIpQLSdYyjBxZcNqouYTV04ZDVJRohXd0wy7gjVz4x2iaejKBiUwiA/formResponse"
+                method="POST" target="hidden_iframe">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="entry.1842114538" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="entry.1809123200" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="phone">Phone</label>
-                        <input type="tel" id="phone" name="phone" required>
+                        <input type="tel" id="phone" name="entry.1822563655" required>
                     </div>
                     <div class="form-group">
                         <label for="guests">Number of Guests</label>
-                        <select id="guests" name="guests" required>
+                        <select id="guests" name="entry.1231147426" required>
                             <option value="">Select...</option>
                             <option value="1">1 Guest</option>
                             <option value="2">2 Guests</option>
@@ -224,19 +226,20 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="date">Date</label>
-                        <input type="date" id="date" name="date" required>
+                        <input type="date" id="date" name="entry.1177760411" required>
                     </div>
                     <div class="form-group">
                         <label for="time">Time</label>
-                        <input type="time" id="time" name="time" required>
+                        <input type="time" id="time" name="entry.1724528083" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="message">Special Requests</label>
-                    <textarea id="message" name="message"
+                    <textarea id="message" name="entry.1937604304"
                         placeholder="Dietary restrictions, occasions, etc."></textarea>
                 </div>
                 <button type="submit" class="submit-button">Reserve Table</button>
+                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
             </form>
         </div>
     </section>
