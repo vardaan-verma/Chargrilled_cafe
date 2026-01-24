@@ -165,3 +165,25 @@ if (iframe) {
         }
     };
 }
+
+// Mobile Menu Toggle
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+const links = document.querySelectorAll('.nav-links li');
+
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('nav-active');
+
+        // Optional: Animate Hamburger
+        hamburger.classList.toggle('toggle');
+    });
+
+    // Close menu when a link is clicked
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('nav-active');
+            hamburger.classList.remove('toggle');
+        });
+    });
+}
