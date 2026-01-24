@@ -23,8 +23,9 @@
         nav {
             position: fixed;
             top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 0;
+            right: 0;
+            margin: 0 auto;
             border-radius: 25px;
             width: 95%;
             backdrop-filter: blur(5px);
@@ -236,10 +237,31 @@
         }
 
         .carousel-space {
-            background-image: linear-gradient(rgb(24, 24, 24), rgba(0, 0, 0, 0.4)), url('.../images/pexels-fwstudio-33348-164003.jpg');
-            background-position: center;
-            background-size: cover;
+            position: relative;
             padding: 1px;
+            overflow: hidden;
+            /* Contain the large text */
+        }
+
+        .carousel-space::before {
+            content: 'CHAR\A GRILLED';
+            /* Split into two lines */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-5deg);
+            font-family: 'Playfair Display', serif;
+            font-size: 25vw;
+            /* Massive size to cover page */
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.04);
+            white-space: pre;
+            /* Respect the line break */
+            text-align: center;
+            line-height: 0.8;
+            z-index: 0;
+            pointer-events: none;
+            width: 100%;
         }
 
 
@@ -361,41 +383,7 @@
             object-fit: cover;
         }
 
-        /* Carousel Navigation Buttons */
-        .carousel-nav {
-            position: relative;
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            margin-top: 3rem;
-            z-index: 100;
-        }
 
-        .carousel-btn {
-            width: 60px;
-            height: 60px;
-            border: 2px solid var(--gold);
-            background: var(--primary-dark);
-            color: var(--gold);
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-
-        .carousel-btn:hover {
-            background: var(--gold);
-            color: var(--primary-dark);
-            transform: scale(1.1);
-        }
-
-        .carousel-btn:active {
-            transform: scale(0.95);
-        }
 
         .menu-category {
             margin-bottom: 5rem;
@@ -744,25 +732,30 @@
             .hamburger {
                 display: block;
                 /* Show hamburger on mobile */
-                z-index: 1001;
+                z-index: 1002;
             }
 
             .nav-links {
-                position: absolute;
+                position: fixed;
+                /* Attach to viewport, not nav */
                 top: 0;
                 right: 0;
                 height: 100vh;
-                width: 60%;
-                background: var(--primary-dark);
-                /* Solid background for menu */
+                width: 70%;
+                /* Slightly wider for gradient effect */
+
+                /* Linear Gradient: Transparent left -> Dark right */
+                background: linear-gradient(to right, rgba(26, 26, 26, 0) 0%, rgba(26, 26, 26, 0.95) 40%, rgba(26, 26, 26, 1) 100%);
+                backdrop-filter: blur(5px);
+
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
                 transform: translateX(100%);
-                /* Hide by default */
                 transition: transform 0.4s ease-in-out;
-                z-index: 1000;
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+                z-index: 1001;
+                /* Above nav background, below hamburger */
+                box-shadow: none;
                 padding-top: 60px;
             }
 
@@ -798,14 +791,14 @@
                 /* Align to top */
                 justify-content: center;
                 overflow: hidden;
-                margin-bottom: 2rem;
+                margin-bottom: 0rem;
             }
 
             .circular-carousel {
                 transform-origin: center center;
-                transform: scale(0.45);
-                top: -150px;
-                /* Pull it up significantly to center it in the smaller box */
+                transform: scale(0.55);
+                top: 10px;
+                /* Adjusted to show full center plate */
                 margin-top: 0;
             }
 

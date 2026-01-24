@@ -97,8 +97,61 @@ function rotateCarousel(direction) {
 initCarousel();
 
 // Button event listeners
-document.getElementById('prevBtn').addEventListener('click', () => rotateCarousel(1));
-document.getElementById('nextBtn').addEventListener('click', () => rotateCarousel(-1));
+// Touch and Scroll Interaction
+const carouselWrapper = document.querySelector('.circular-carousel-wrapper');
+let isDragging = false;
+let startX = 0;
+let lastX = 0;
+
+// Mobile Touch Events
+carouselWrapper.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    startX = e.touches[0].clientX;
+    lastX = startX;
+});
+
+carouselWrapper.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault(); // Prevent page scrolling while rotating carousel
+    const currentX = e.touches[0].clientX;
+    const deltaX = currentX - lastX;
+
+    // Sensitivity factor
+    const sensitivity = 0.5;
+    const rotationDelta = (deltaX * sensitivity) / (carouselWrapper.offsetWidth / 360);
+
+    // Direct manipulation feel - temporary rotation
+    // Note: For simplicity in this specific architecture where we snap to items,
+    // we might just detect Swipe direction instead of direct 1:1 tracking
+    lastX = currentX;
+});
+
+carouselWrapper.addEventListener('touchend', (e) => {
+    if (!isDragging) return;
+    isDragging = false;
+    const endX = e.changedTouches[0].clientX;
+    const diff = endX - startX;
+
+    // Threshold to register a swipe
+    if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+            rotateCarousel(1); // Swipe Right -> Prev
+        } else {
+            rotateCarousel(-1); // Swipe Left -> Next
+        }
+    }
+});
+
+// PC Mouse Wheel Event
+carouselWrapper.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    // Throttle the scroll event to prevent rapid spinning
+    if (e.deltaY > 0) {
+        rotateCarousel(-1);
+    } else {
+        rotateCarousel(1);
+    }
+}, { passive: false });
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
